@@ -25,6 +25,7 @@ clean: down
 	@docker system prune -a
 
 fclean: down
+	@rm -rf ${CERT_PATH}
 	@printf "\033[33m\u26d4 volume removal \u26d4\033[31m\n"
 	# @docker-compose down
 	@docker volume remove srcs_wp-volume srcs_db-volume
