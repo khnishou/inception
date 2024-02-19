@@ -33,8 +33,11 @@ fclean: down
 
 check:
 	@docker network ls
+	@printf "------------------------------------------------------------------\n"
 	@docker volume ls
+	@printf "------------------------------------------------------------------\n"
 	@docker images ls
+	@printf "------------------------------------------------------------------\n"
 	@docker ps -a
 
 .PHONY	: all build down re clean fclean cert check
