@@ -10,7 +10,7 @@ cert:
 	@mkcert ${USER}.42.fr
 	@mv ${USER}.42.fr-key.pem ${USER}.42.fr.key
 	@mv ${USER}.42.fr.pem ${USER}.42.fr.crt
-	@cd ~/incption
+	@cd ~/inception
 
 build:
 	@docker-compose -f ./srcs/docker-compose.yml up -d --build --remove-orphans
