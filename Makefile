@@ -31,4 +31,10 @@ fclean: down
 	@docker volume remove srcs_wp-volume srcs_db-volume
 	@printf "\033[0m\n"
 
-.PHONY	: all build down re clean fclean
+check:
+	@docker network ls
+	@docker volume ls
+	@docker images ls
+	@docker ps -a
+
+.PHONY	: all build down re clean fclean cert check
