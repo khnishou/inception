@@ -1,16 +1,17 @@
 USER = ykerdel
+HOME = /home/${USER}
 
 all: cert
 	@bash ./srcs/conf/create_volumes.sh
 	@docker-compose -f ./srcs/docker-compose.yml up -d --remove-orphans
 
 cert:
-	@mkdir ~/inception/srcs/requirements/nginx/tools
-	@cd ~/inception/srcs/requirements/nginx/tools
+	@mkdir ${HOME}/inception/srcs/requirements/nginx/tools
+	@cd ${HOME}/inception/srcs/requirements/nginx/tools
 	@mkcert ${USER}.42.fr
 	@mv ${USER}.42.fr-key.pem ${USER}.42.fr.key
 	@mv ${USER}.42.fr.pem ${USER}.42.fr.crt
-	@cd ~/inception
+	@cd ${HOME}/inception
 
 build:
 	@docker-compose -f ./srcs/docker-compose.yml up -d --build --remove-orphans
