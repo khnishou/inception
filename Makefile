@@ -1,8 +1,15 @@
 USER = ykerdel
 
-all:  
+all: cert
 	@bash ./srcs/conf/create_volumes.sh
 	@docker-compose -f ./srcs/docker-compose.yml up -d --remove-orphans
+
+cert:
+	@cd ~/incption/srcs/requirements/nginx
+	@mkcert ${USER}.42.fr
+	@mv ${USER}.42.fr-key.pem ${USER}.42.fr.key
+	@mv ${USER}.42.fr.pem ${USER}.42.fr.crt
+	@cd ~/incption
 
 build:
 	@docker-compose -f ./srcs/docker-compose.yml up -d --build --remove-orphans
