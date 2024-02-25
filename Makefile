@@ -11,6 +11,7 @@ cert:
 	@cd ${CERT_PATH} && mkcert ${USER}.42.fr
 	@mv ${CERT_PATH}/${USER}.42.fr-key.pem ${CERT_PATH}/${USER}.42.fr.key
 	@mv ${CERT_PATH}/${USER}.42.fr.pem ${CERT_PATH}/${USER}.42.fr.crt
+	@cd -
 
 build:
 	@docker-compose -f ./srcs/docker-compose.yml up -d --build --remove-orphans
